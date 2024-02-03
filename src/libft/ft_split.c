@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 15:49:25 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/02/03 22:13:54 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ static void	freetab(char **str)
 	while (str[i])
 		free(str[i++]);
 	free(str);
-	str=NULL;
+	str = NULL;
 }
 
 static char	**sub(const char *s, char c, char **str, int len)
@@ -61,7 +61,7 @@ static char	**sub(const char *s, char c, char **str, int len)
 			i++;
 		str[y++] = ft_substr(s, sub_start, i - sub_start);
 		if (!str[y - 1])
-			return (freetab(str),NULL);
+			return (freetab(str), NULL);
 	}
 	return (str);
 }
@@ -69,7 +69,7 @@ static char	**sub(const char *s, char c, char **str, int len)
 char	**ft_split(char const *s, char c)
 {
 	char	**str;
-	int len;
+	int		len;
 
 	len = countstr(s, c);
 	if (!s)
@@ -77,7 +77,7 @@ char	**ft_split(char const *s, char c)
 	str = ft_calloc(len + 1, sizeof(char *));
 	if (!str)
 		return (NULL);
-	if (!sub(s, c, str,len))
+	if (!sub(s, c, str, len))
 		return (NULL);
 	return (str);
 }

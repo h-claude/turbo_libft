@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/03 20:00:56 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 21:32:15 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/02/03 21:47:35 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define TURBO_H
 
 # include "include/libft.h"
-#include <fcntl.h>
+# include <fcntl.h>
 
 int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strcat(char *s1, const char *s2);
-char *ft_strndup(const char *s, size_t n);
+char	*ft_strndup(const char *s, size_t n);
 char	*ft_strrchr(const char *s, int c);
 char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);

@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:35:06 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:23:51 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/02/03 21:58:42 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 static int	is_backslash(char *buffer)
 {
+	unsigned int		temp_i;
 	static unsigned int	i = 0;
-	unsigned int temp_i;
 
 	temp_i = 0;
 	while (buffer[i])
@@ -98,18 +98,10 @@ static char	*get_next_line_part2(int fd, char **buffer)
 	return (return_line);
 }
 
-/**
- * A function that returns the next line from a give fd.
- * 
- * @param fd File Descriptor.
- * @return char* The next line.
- */
-
 char	*get_next_line(int fd)
 {
 	static char	*buffer[1024];
-	
-	
+
 	if (fd < 0 || BUFFER_SIZE < 0 || fd >= 1024)
 		return (NULL);
 	if (!buffer[fd])
