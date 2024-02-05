@@ -71,9 +71,9 @@ char	**ft_split(char const *s, char c)
 	char	**str;
 	int		len;
 
-	len = countstr(s, c);
 	if (!s)
 		return (NULL);
+	len = countstr(s, c);
 	str = ft_calloc(len + 1, sizeof(char *));
 	if (!str)
 		return (NULL);
