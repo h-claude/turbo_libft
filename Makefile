@@ -73,7 +73,7 @@ src/libft/ft_lstclear_bonus.c \
 src/libft/ft_lstiter_bonus.c \
 src/libft/ft_lstmap_bonus.c
 
-SRCgnl = src/get_next_line/get_next_line_bonus.c \
+SRCgnl = src/get_next_line/get_next_line.c \
 
 SRCprintf = src/printf/ft_printf.c src/printf/ft_put_unsigned.c src/printf/ft_put.c \
 src/printf/ft_puthexa.c src/printf/ft_putpointer.c 
