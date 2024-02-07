@@ -23,13 +23,17 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = 0;
 	lenght = ft_strlen(s);
 	if (start >= lenght)
-		return (ft_calloc(sizeof(char), 1));
+	{
+		str = ft_calloc(sizeof(char), 1);
+		if (!str)
+			return (NULL);
+	}
 	if (len + start > lenght)
 		len = lenght - start;
 	str = (char *)ft_calloc(sizeof(char), len + 1);
 	if (!str)
 		return (NULL);
-	while (i < len)
+	while (i < len && s[i])
 	{
 		str[i] = s[start + i];
 		i++;
