@@ -6,7 +6,7 @@
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:35:06 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/15 05:07:43 by moajili          ###   ########.fr       */
+/*   Updated: 2024/02/15 09:31:25 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,8 @@ static char	*get_next_line_part2(int fd, char **buffer,
 	if (index != -1)
 	{
 		return_line = ft_strndup(*buffer, index + 1);
+		if (!return_line)
+			return (free(*buffer),NULL);
 		replace(buffer, index);
 	}
 	else
