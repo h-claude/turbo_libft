@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+         #
+#    By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/02/03 21:27:18 by hclaude          ###   ########.fr        #
+#    Updated: 2024/02/15 06:49:40 by moajili          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ AR = ar
 
 ARFLAGS = rcs
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g3
 
 OBJFILES = $(SRCFILES:.c=.o)
 OBJFILESBONUS = $(OBJFILES) $(SRCBONUS:.c=.o)
