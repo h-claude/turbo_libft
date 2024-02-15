@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../include/get_next_line.h"
+#include "../../include/libft.h"
 
 static int	is_backslash(char *buffer)
 {
