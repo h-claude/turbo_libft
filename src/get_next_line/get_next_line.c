@@ -1,48 +1,49 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
+/*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:35:06 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 21:58:42 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/02/15 05:07:43 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
-static int	is_backslash(char *buffer)
+static int	is_backslash(char *buffer, unsigned int *last_newline_index)
 {
-	unsigned int		temp_i;
-	static unsigned int	i = 0;
+	unsigned int	i;
 
-	temp_i = 0;
+	i = *last_newline_index;
 	while (buffer[i])
 	{
 		if ('\n' == buffer[i])
 		{
-			temp_i = i;
-			i = 0;
-			return (temp_i);
+			*last_newline_index = 0;
+			return (i);
 		}
 		i++;
 	}
+	*last_newline_index = i;
 	return (-1);
 }
 
-static void	replace(char **buffer)
+static void	replace(char **buffer, int index)
 {
-	int		i;
-	char	*new_buffer;
+	char	*src;
+	char	*dest;
 
-	i = is_backslash(*buffer);
-	new_buffer = ft_substr(*buffer, i + 1, ft_strlen(*buffer) - i);
-	free(*buffer);
-	*buffer = new_buffer;
+	src = *buffer + index + 1;
+	dest = *buffer;
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
 }
 
-static int	read_and_get(int fd, char **buffer)
+static int	read_and_get(int fd, char **buffer,
+		unsigned int *last_newline_index)
 {
 	char	*new_str;
 	char	*new_buffer;
@@ -52,7 +53,7 @@ static int	read_and_get(int fd, char **buffer)
 	new_str = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!new_str)
 		return (1);
-	while (is_backslash(*buffer) == -1)
+	while (is_backslash(*buffer, last_newline_index) == -1)
 	{
 		n_read = read(fd, new_str, BUFFER_SIZE);
 		if (n_read == -1)
@@ -69,44 +70,48 @@ static int	read_and_get(int fd, char **buffer)
 	return (free(new_str), 0);
 }
 
-static char	*get_next_line_part2(int fd, char **buffer)
+static char	*get_next_line_part2(int fd, char **buffer,
+		unsigned int *last_newline_index)
 {
+	int		index;
 	char	*return_line;
-	int		empty;
 
-	empty = read_and_get(fd, buffer);
-	if (empty == -1)
+	if (read_and_get(fd, buffer, last_newline_index) == -1)
 	{
 		free(*buffer);
 		*buffer = NULL;
-		return (*buffer);
+		return (NULL);
 	}
-	if (empty == 0)
+	index = is_backslash(*buffer, last_newline_index);
+	if (index != -1)
 	{
-		return_line = ft_substr(*buffer, 0, is_backslash(*buffer) + 1);
-		replace(buffer);
-		if (!return_line && *buffer)
-			return (free(*buffer), *buffer = NULL, NULL);
-		return (return_line);
+		return_line = ft_strndup(*buffer, index + 1);
+		replace(buffer, index);
 	}
-	if (!buffer || *buffer[0] == '\0')
-		return_line = NULL;
 	else
-		return_line = ft_substr(*buffer, 0, ft_strlen(*buffer));
-	free(*buffer);
-	*buffer = NULL;
+	{
+		if (*buffer[0] == '\0')
+			return_line = NULL;
+		else
+			return_line = ft_strdup(*buffer);
+		free(*buffer);
+		*buffer = NULL;
+	}
 	return (return_line);
 }
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[1024];
+	static char			*buffer[1024];
+	static unsigned int	last_newline_index[1024] = {0};
 
 	if (fd < 0 || BUFFER_SIZE < 0 || fd >= 1024)
 		return (NULL);
 	if (!buffer[fd])
+	{
 		buffer[fd] = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
-	if (!buffer[fd])
-		return (NULL);
-	return (get_next_line_part2(fd, &buffer[fd]));
+		if (!buffer[fd])
+			return (NULL);
+	}
+	return (get_next_line_part2(fd, &buffer[fd], &last_newline_index[fd]));
 }
