@@ -42,7 +42,7 @@ int	ft_hexadecimal(unsigned int n, char format)
 	if (!tab)
 		return (ft_putstr(NULL));
 	i--;
-	while (n / 16 >= 0 && i >= 0)
+	while (i >= 0)
 	{
 		tab[i] = base[(n % 16)];
 		n /= 16;
