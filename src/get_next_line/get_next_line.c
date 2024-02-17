@@ -6,7 +6,7 @@
 /*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:35:06 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/15 09:31:25 by moajili          ###   ########.fr       */
+/*   Updated: 2024/02/17 07:27:50 by moajili          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,8 @@ char	*get_next_line(int fd)
 {
 	static char			*buffer[1024];
 	static unsigned int	last_newline_index[1024] = {0};
-
+	char				*line;
+	
 	if (fd < 0 || BUFFER_SIZE < 0 || fd >= 1024)
 		return (NULL);
 	if (!buffer[fd])
@@ -115,5 +116,10 @@ char	*get_next_line(int fd)
 		if (!buffer[fd])
 			return (NULL);
 	}
-	return (get_next_line_part2(fd, &buffer[fd], &last_newline_index[fd]));
+	line= get_next_line_part2(fd, &buffer[fd], &last_newline_index[fd]);
+	if (line == NULL)
+		{free(buffer[fd]);
+		return (NULL);}
+	
+	return (line);
 }
