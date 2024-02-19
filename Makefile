@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+         #
+#    By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/02/15 06:49:40 by moajili          ###   ########.fr        #
+#    Updated: 2024/02/19 14:22:50 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -76,7 +76,7 @@ src/libft/ft_lstmap_bonus.c
 SRCgnl = src/get_next_line/get_next_line.c \
 
 SRCprintf = src/printf/ft_printf.c src/printf/ft_put_unsigned.c src/printf/ft_put.c \
-src/printf/ft_puthexa.c src/printf/ft_putpointer.c 
+src/printf/ft_puthexa.c src/printf/ft_putpointer.c
 
 all : $(NAME)
 
@@ -93,8 +93,6 @@ fclean : clean
 	@echo "BOUM POUBELLE 🗑️"
 
 re : fclean all
-
-#Make printf et supprime tous les objets
 
 big : all clean
 
