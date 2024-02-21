@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:35:06 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/19 14:12:45 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/02/21 18:43:42 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,13 @@
 
 int	is_backslash(char *buffer)
 {
-	static unsigned int	i = 0;
-	int					temp_i;
+	unsigned int	i;
 
-	temp_i = 0;
+	i = 0;
 	while (buffer[i])
 	{
 		if ('\n' == buffer[i])
-		{
-			temp_i = i;
-			i = 0;
-			return (temp_i);
-		}
+			return (i);
 		i++;
 	}
 	return (-1);
@@ -100,14 +95,13 @@ char	*get_next_line_part2(int fd, char **buffer)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer = NULL;
+	static char	*buffer[1024];
 
-	if (fd == -1 || BUFFER_SIZE < 0)
+	if (fd < 0 || BUFFER_SIZE < 0 || fd >= 1024)
 		return (NULL);
-	if (!buffer)
-		buffer = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
-	if (!buffer)
+	if (!buffer[fd])
+		buffer[fd] = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	if (!buffer[fd])
 		return (NULL);
-	return (get_next_line_part2(fd, &buffer));
+	return (get_next_line_part2(fd, &buffer[fd]));
 }
-
