@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+         #
+#    By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/02/21 18:12:11 by hclaude          ###   ########.fr        #
+#    Updated: 2024/03/21 17:20:06 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -82,15 +82,16 @@ all : $(NAME)
 
 $(NAME) : $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL) $(OBJFILESPRINTF)
 	@$(AR) $(ARFLAGS) $@ $^
-	@echo "done ! ✅"
+	@echo "\033[32mturbo_libft compiled\033[0m"
 
 clean :
 	@rm -rf $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL)
-	@make clean -C src/printf/
+	@make -s clean -C src/printf/
+	@echo "\033[31mclean turbo_libft\033[0m"
 
 fclean : clean
 	@rm -rf $(NAME)
-	@echo "BOUM POUBELLE 🗑️"
+	@echo "\033[31mfclean turbo_libft\033[0m"
 
 re : fclean all
 
