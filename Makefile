@@ -6,7 +6,7 @@
 #    By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/03/21 17:20:06 by hclaude          ###   ########.fr        #
+#    Updated: 2024/04/08 14:55:07 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ OBJFILESPRINTF = $(SRCprintf:.c=.o)
 
 
 SRCFILES = src/libft/ft_atoi.c  \
+src/libft/ft_atol.c \
 src/libft/ft_bzero.c \
 src/libft/ft_calloc.c \
 src/libft/ft_isalnum.c \
