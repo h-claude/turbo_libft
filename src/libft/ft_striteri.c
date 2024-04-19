@@ -6,12 +6,19 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 17:29:01 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:37:54 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Applies the function 'f' to each 
+ * character of the string 's', and passing its index as first argument. 
+ * Each character is passed by address to 'f' to be modified if necessary.
+ * @param s The string on which to iterate.
+ * @param f The function to apply to each character of 's' and its index.
+ */
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
 	int	i;

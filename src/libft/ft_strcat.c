@@ -6,12 +6,24 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/02 22:01:17 by moajili           #+#    #+#             */
-/*   Updated: 2024/02/03 22:14:04 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:36:59 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Appends the string pointed to by 's2' 
+ * to the end of the string pointed to by 's1'. 
+ * The terminating null character in 's1' 
+ * is overwritten by the first character of 's2', 
+ * and a null-character is included
+ *  at the end of the new string formed 
+ * by the concatenation of both in 's1'.
+ * @param s1 The string to be appended on.
+ * @param s2 The string to append to 's1'.
+ * @return A pointer to the resulting string 's1'.
+ */
 char	*ft_strcat(char *s1, const char *s2)
 {
 	unsigned int	i;

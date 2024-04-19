@@ -6,12 +6,23 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 09:43:19 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:38:40 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Compares the first 'n' bytes 
+ * (each interpreted as unsigned char) of 
+ * the memory areas 's1' and 's2'.
+ * @param s1 The first memory area.
+ * @param s2 The second memory area.
+ * @param n The number of bytes to compare.
+ * @return An integer less than, equal to, 
+ * or greater than zero if 's1' is found, respectively, 
+ * to be less than, to match, or be greater than 's2'.
+ */
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t		i;

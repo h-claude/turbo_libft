@@ -6,12 +6,22 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/18 12:28:12 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 22:14:25 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:37:20 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Copies 'n' bytes from memory area 'src' to memory area 'dst'. 
+ * If 'src' and 'dst' overlap, behavior is undefined. 
+ * Applications in which 'src' and 'dst' 
+ * might overlap should use memmove(3) instead.
+ * @param dst The memory area to copy to.
+ * @param src The memory area to copy from.
+ * @param n The number of bytes to copy.
+ * @return A pointer to 'dst'.
+ */
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*dest;

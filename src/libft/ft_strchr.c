@@ -6,12 +6,24 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 14:27:02 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 21:47:50 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:38:22 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Locates the first occurrence of 'c' 
+ * (converted to a char) in the string pointed to by 's'. 
+ * The terminating null character is considered 
+ * to be part of the string; therefore if 'c' is '\0', 
+ * the functions locate the terminating '\0'.
+ * @param s The string to be scanned.
+ * @param c The character to be searched.
+ * @return A pointer to the first occurrence of 
+ * the character 'c' in the string 's', or NULL 
+ * if the character is not found.
+ */
 char	*ft_strchr(const char *s, int c)
 {
 	int				i;

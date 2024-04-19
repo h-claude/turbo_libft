@@ -3,14 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+         #
+#    By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/04/08 14:55:07 by hclaude          ###   ########.fr        #
+#    Updated: 2024/04/20 00:03:30 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
+NAME = libft
 
 CC = @gcc
 
@@ -83,16 +83,15 @@ all : $(NAME)
 
 $(NAME) : $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL) $(OBJFILESPRINTF)
 	@$(AR) $(ARFLAGS) $@ $^
+	@$(eval CURRENT_FILES=$(shell echo $$(($(CURRENT_FILES)+1))))
 	@echo "\033[32mturbo_libft compiled\033[0m"
 
 clean :
-	@rm -rf $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL)
-	@make -s clean -C src/printf/
+	@rm -rf $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL) $(OBJFILESPRINTF)
 	@echo "\033[31mclean turbo_libft\033[0m"
 
 fclean : clean
 	@rm -rf $(NAME)
-	@echo "\033[31mfclean turbo_libft\033[0m"
 
 re : fclean all
 

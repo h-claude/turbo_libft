@@ -6,12 +6,22 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 02:14:01 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:34:00 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Takes as a parameter an element and frees the 
+ * memory of the element’s content 
+ * using the function 'del' given as a parameter, 
+ * then frees the element itself.
+ * The memory of 'next' is not freed.
+ * @param lst The element to free.
+ * @param del The address of the function used to delete the content.
+ * If 'lst' or 'del' is NULL, the function does nothing.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void*))
 {
 	if (lst && (*del))

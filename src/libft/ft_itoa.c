@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 14:56:11 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:02:40 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ static void	recustr(long int n, char *str, int count)
 	}
 }
 
+/* 
+ * Converts an integer into a string.
+ * @param n The integer to convert.
+ * @return A new string representing the integer. 
+ * If the function fails, it returns NULL.
+ */
 char	*ft_itoa(int n)
 {
 	char		*str;

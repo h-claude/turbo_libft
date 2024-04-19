@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 15:50:10 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:32:07 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,14 @@ static int	ishere(char c, char const *s2)
 	return (0);
 }
 
+/* 
+ * Allocates (with malloc(3)) and returns a copy of 's1' 
+ * with the characters specified in 'set' removed 
+ * from the beginning and the end of the string.
+ * @param s1 The string to be trimmed.
+ * @param set The reference set of characters to trim.
+ * @return The trimmed string. NULL if the allocation fails.
+ */
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t		start;

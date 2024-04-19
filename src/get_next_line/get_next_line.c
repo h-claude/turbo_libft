@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/27 14:35:06 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/21 18:43:42 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:27:25 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,15 @@ char	*get_next_line_part2(int fd, char **buffer)
 	return (return_line);
 }
 
+/* 
+ * Reads a line from a file descriptor and returns it. 
+ * A line is a succession of characters that end with '\n'
+ * or with End Of File (EOF).
+ * @param fd The file descriptor to read from.
+ * @return The line that has been read or NULL
+ * if nothing has been read or if an error occurred. 
+ * The returned string should be freed when not needed anymore.
+ */
 char	*get_next_line(int fd)
 {
 	static char	*buffer[1024];

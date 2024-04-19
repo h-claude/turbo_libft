@@ -6,12 +6,20 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/25 12:07:42 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 22:00:48 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:29:41 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Returns a pointer to a new string which is a duplicate of the string 's'. 
+ * Memory for the new string is obtained with malloc(3), 
+ * and can be freed with free(3).
+ * @param s The string to duplicate.
+ * @return A pointer to the duplicated string. 
+ * It returns NULL if insufficient memory was available.
+ */
 char	*ft_strdup(const char *s)
 {
 	size_t	i;
@@ -28,24 +36,3 @@ char	*ft_strdup(const char *s)
 	}
 	return (str);
 }
-
-// char	*ft_strdup(const char *s1)
-// {
-// 	int		src_len;
-// 	char	*dest;
-// 	int		i;
-
-// 	i = 0;
-// 	src_len = ft_strlen(s1);
-// 	dest = (char *)malloc(sizeof(char) * src_len + 1);
-// 	if (!dest)
-// 		return (0);
-// 	ft_memset(dest, 0, src_len + 1);
-// 	while (s1[i])
-// 	{
-// 		dest[i] = s1[i];
-// 		i++;
-// 	}
-// 	dest[i] = '\0';
-// 	return (dest);
-// }

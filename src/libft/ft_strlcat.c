@@ -3,27 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: moajili <moajili@student.42mulhouse.fr>    +#+  +:+       +#+        */
+/*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/20 12:42:01 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/05 13:37:07 by moajili          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:30:28 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../include/libft.h"
 
+/* 
+ * Copies up to 'dstsize' - 1 characters 
+ * from the string 'src' to 'dst', 
+ * NUL-terminating the result if 'dstsize' is not 0.
+ * If the 'src' and 'dst' strings overlap, the behavior is undefined.
+ * @param dst The destination string.
+ * @param src The source string.
+ * @param dstsize The size of the destination string.
+ * @return The total length of the string they tried to create.
+ */
 size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
 	size_t	i;
 	size_t	y;
 	size_t	len;
+	size_t	lenght;
 
+	lenght = ft_strlen(src);
 	if (ft_memchr(dst, '\0', dstsize) == NULL)
-		return (ft_strlen(src) + dstsize);
+		return (lenght + dstsize);
 	i = ft_strlen(dst);
 	if (dstsize == 0 || dstsize <= i)
-		return (ft_strlen(src) + dstsize);
-	len = ft_strlen(dst) + ft_strlen(src);
+		return (lenght + dstsize);
+	len = i + lenght;
 	y = 0;
 	while (i < (dstsize - 1) && src[y])
 		dst[i++] = src[y++];

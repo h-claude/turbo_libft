@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 14:51:38 by hclaude           #+#    #+#             */
-/*   Updated: 2024/04/08 14:53:32 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:03:47 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,15 @@ static int	ispace(char c)
 	return (0);
 }
 
+/* 
+ * Converts a string to a long integer.
+ * @param nptr The string to convert.
+ * @return The long integer representation of the string. 
+ * If the string starts with '-', the result is negative.
+ * If the string starts with '+', the result is positive.
+ * If the string starts with neither, the result is positive.
+ * If the string contains non-digit characters, they are ignored.
+ */
 long	ft_atol(const char *nptr)
 {
 	long	i;

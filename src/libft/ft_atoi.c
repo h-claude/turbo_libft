@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/24 12:00:54 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:22:56 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:03:18 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,15 @@ static int	ispace(char c)
 	return (0);
 }
 
+/* 
+ * Converts a string to an integer.
+ * @param nptr The string to convert.
+ * @return The integer representation of the string. 
+ * If the string starts with '-', the result is negative.
+ * If the string starts with '+', the result is positive.
+ * If the string starts with neither, the result is positive.
+ * If the string contains non-digit characters, they are ignored.
+ */
 int	ft_atoi(const char *nptr)
 {
 	int	i;

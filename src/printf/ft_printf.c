@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/10 13:08:23 by hclaude           #+#    #+#             */
-/*   Updated: 2024/02/03 20:25:03 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/04/19 23:28:50 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,21 @@ int	ft_printf_format(char c, va_list ap)
 	return (count);
 }
 
+/* 
+ * Writes the string pointed by 'format' to the standard output (stdout). 
+ * If format includes format specifiers (subsequences beginning with %), 
+ * the additional arguments following format are formatted and inserted 
+ * in the resulting string replacing their respective specifiers.
+ * @param format This is the string that contains the text to be 
+ * written to stdout. 
+ * It can optionally contain embedded format specifiers that are replaced 
+ * by the values specified in subsequent additional 
+ * arguments and formatted as requested.
+ * @return Upon successful return, 
+ * these function return the number of characters printed 
+ * (excluding the null byte used to end output to strings). 
+ * If an output error is encountered, a negative value is returned.
+ */
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
