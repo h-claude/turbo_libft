@@ -6,11 +6,11 @@
 #    By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/04/20 00:03:30 by hclaude          ###   ########.fr        #
+#    Updated: 2024/04/22 13:30:29 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 
 CC = @gcc
 
