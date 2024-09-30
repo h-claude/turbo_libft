@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hclaude <hclaude@student.42.fr>            +#+  +:+       +#+        */
+/*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/27 15:24:01 by hclaude           #+#    #+#             */
-/*   Updated: 2024/05/30 17:18:03 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/09/30 17:28:31 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,17 @@
 # ifndef BUFFER_SIZE
 #  define BUFFER_SIZE 2024
 # endif
+
+// -- Garbage collector -- //
+# define FREE_GB 1
+# define FREE_PTR 2
+
+typedef struct s_gc
+{
+	void			*str;
+	struct s_gc		*next;
+}					t_gc;
+//-------------------------//
 
 typedef struct s_list
 {
@@ -77,5 +88,12 @@ t_list	*ft_lstnew(void *content);
 t_list	*ft_lstlast(t_list *lst);
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *),
 			void (*del)(void *));
+
+// garbage collector
+int		ft_garbage(int flag, void *result);
+void	*ft_malloc(size_t size);
+void	ft_free(void *ptr);
+void	ft_free_gb(void);
+void	ft_exit(int status);
 
 #endif

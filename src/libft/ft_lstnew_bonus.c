@@ -6,7 +6,7 @@
 /*   By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/04 00:57:44 by hclaude           #+#    #+#             */
-/*   Updated: 2024/04/19 23:30:36 by hclaude          ###   ########.fr       */
+/*   Updated: 2024/09/30 18:41:20 by hclaude          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,9 @@ t_list	*ft_lstnew(void *content)
 	tab = ft_calloc(1, sizeof(t_list));
 	if (!tab)
 		return (NULL);
-	tab->content = content;
+	tab->content = ft_strdup(content);
+	if (!tab->content)
+		return (free(tab), NULL);
 	tab->next = NULL;
 	return (tab);
 }

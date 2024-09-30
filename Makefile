@@ -6,7 +6,7 @@
 #    By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/04/22 13:30:29 by hclaude          ###   ########.fr        #
+#    Updated: 2024/09/30 17:37:46 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ OBJFILES = $(SRCFILES:.c=.o)
 OBJFILESBONUS = $(OBJFILES) $(SRCBONUS:.c=.o)
 OBJFILESGNL = $(OBJFILESBONUS) $(SRCgnl:.c=.o)
 OBJFILESPRINTF = $(SRCprintf:.c=.o)
-
 
 SRCFILES = src/libft/ft_atoi.c  \
 src/libft/ft_atol.c \
@@ -62,7 +61,9 @@ src/libft/ft_putnbr_fd.c \
 src/libft/ft_split.c \
 src/libft/ft_itoa.c \
 src/libft/ft_strmapi.c \
-src/libft/ft_striteri.c
+src/libft/ft_striteri.c \
+src/garbage_collector/call_functions.c \
+src/garbage_collector/garbage_collector.c
 
 SRCBONUS = src/libft/ft_lstnew_bonus.c \
 src/libft/ft_lstadd_front_bonus.c \
