@@ -6,7 +6,7 @@
 #    By: hclaude <hclaude@student.42mulhouse.fr>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/26 14:52:17 by hclaude           #+#    #+#              #
-#    Updated: 2024/09/30 17:37:46 by hclaude          ###   ########.fr        #
+#    Updated: 2024/10/04 13:03:59 by hclaude          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ OBJFILES = $(SRCFILES:.c=.o)
 OBJFILESBONUS = $(OBJFILES) $(SRCBONUS:.c=.o)
 OBJFILESGNL = $(OBJFILESBONUS) $(SRCgnl:.c=.o)
 OBJFILESPRINTF = $(SRCprintf:.c=.o)
+OBJDIR= .objs
 
 SRCFILES = src/libft/ft_atoi.c  \
 src/libft/ft_atol.c \
@@ -80,15 +81,23 @@ SRCgnl = src/get_next_line/get_next_line.c \
 SRCprintf = src/printf/ft_printf.c src/printf/ft_put_unsigned.c src/printf/ft_put.c \
 src/printf/ft_puthexa.c src/printf/ft_putpointer.c
 
+SRCS = $(SRCFILES) $(SRCBONUS) $(SRCgnl) $(SRCprintf)
+
+
 all : $(NAME)
 
-$(NAME) : $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL) $(OBJFILESPRINTF)
+OBJS = $(patsubst %.c, $(OBJDIR)/%.o, $(SRCS))
+
+$(OBJDIR)/%.o: %.c
+	@mkdir -p $(@D)
+	@$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+
+$(NAME) : $(OBJS)
 	@$(AR) $(ARFLAGS) $@ $^
-	@$(eval CURRENT_FILES=$(shell echo $$(($(CURRENT_FILES)+1))))
 	@echo "\033[32mturbo_libft compiled\033[0m"
 
 clean :
-	@rm -rf $(OBJFILES) $(OBJFILESBONUS) $(OBJFILESGNL) $(OBJFILESPRINTF)
+	@rm -rf $(OBJDIR)
 	@echo "\033[31mclean turbo_libft\033[0m"
 
 fclean : clean
