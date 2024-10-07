@@ -1,4 +1,4 @@
-# Ma Superbe turbo_libft
+# Ma Superbe libft
 
 ## Ma superbe libft super rapide, super bien mais surtout super cool !
 <br/>
@@ -7,3 +7,7 @@
 <br/>
 
 ![hippo](images/rocket.gif)
+
+## Copyright
+
+© 2023 Votre Nom ou Votre Organisation. Tous droits réservés.
